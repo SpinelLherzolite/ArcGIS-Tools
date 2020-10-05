@@ -1,11 +1,12 @@
 #Clipping script for Weld County, Colorado. This script takes an Area
 #of Interest (AOI) and clips a DEM (in this case, lidar) for that area by 
 #quadrangle, and then creates a hillshade for that. This logic can be applied
-#to work in other AOIS
+#to work in other Areas of Interest (AOI)
 #--------------------- 
 
 
 #import system modules
+#---------------------
 import arcpy, os
 from arcpy import env
 from arcpy.sa import *
@@ -22,15 +23,11 @@ for l in m.listLayers():
         l.definitionQuery = """"COUNTY" = 'WELD'"""
 
 inLidar = r'N:\LIBRARY\Data\GIS data library\LiDAR\Lincoln, Elbert, Arapahoe, Adams, Denver, Morgan, Weld counties composite\Blocks_1_4\total_mosaic.img'
-inQuads = 'Quads24k_USDA_python' #SelectLayerByLocation wont accept a file path for an input
+inQuads = 'Quads24k_USDA_python' #SelectLayerByLocation wont accept a file path for an input, must be local to the mxd/aprx project
 inCounty = 'COUNTIES_DOLA_2016'
 fields = ['quad_name', 'SHAPE@']
 arcpy.SelectLayerByLocation_management (inQuads, 'WITHIN', inCounty)
 
-#Pro tip: Always test your code one 1-2 of the items in the loop before you
-#scale it to a huge amount of items. Also, don't use try/except when developing
-#your script, it tends to hide beneficial errors for debugging. I've included the
-#Search Cursor below without a try/except
 #----------------------------------------
 with arcpy.da.SearchCursor (inQuads, fields) as cursor:
     for row in cursor:
