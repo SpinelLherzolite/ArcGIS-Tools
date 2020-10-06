@@ -1,5 +1,5 @@
--#Python workflow for converting depths below ground surface of geologic units
-#to elevations above sea level
+#Python workflow for determining the aquifer that a groundwater monitoring well resides in
+#La Plata County, Colorado
 #Developed by Martin Palkovic, Geologist at Colorado Geological Survey
 #Colorado School of Mines
 #April 2020
