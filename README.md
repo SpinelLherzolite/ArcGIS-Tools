@@ -7,4 +7,4 @@ La Plata County Python Workflow - A workflow I developed that checks a groundwat
 
 Hazard Derivative Tools (IN PROGRESS) - I'm working on ArcGIS tools that would automatically determine the geologic hazards in an area of interest in the state of Colorado, given input geology and a DEM from Colorado Geological Survey data
 
-Landslide Logic (IN PROGRESS) - This logic will be incorporated into the 'Landslide' hazard tool. It creates polygons from rasters that meet a certain slope angle criteria
+Landslide Logic (IN PROGRESS) - This logic will be incorporated into the 'Landslide' hazard tool. It creates polygons from rasters that meet a certain slope angle criteria that are within a certain geologic formation
